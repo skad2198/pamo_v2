@@ -99,7 +99,9 @@ Motors{% endblock %} {% block css %}
 <section class="bg-dark text-white" id="AboutUs">
   <div class="container text-center">
     <h2 class="mb-4">Check out all the cars!</h2>
-    <a class="btn btn-dark btn-xl sr-button" href="">Click here</a>
+    <a class="btn btn-dark btn-xl sr-button" href="{% url 'web:cars' %}"
+      >Click here</a
+    >
   </div>
 </section>
 
