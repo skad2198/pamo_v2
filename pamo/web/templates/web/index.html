@@ -1,0 +1,318 @@
+{% extends 'web/base.html' %} {% load static %} {% block title %} Panafrique
+Motors{% endblock %} {% block css %}
+<link
+  href="{% static 'css/creative.min.css' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+{% endblock %} {% block menu %}
+<ul class="navbar-nav ml-auto">
+  <li class="nav-item">
+    <a class="nav-link js-scroll-trigger" href="#AboutUs">About Us</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link js-scroll-trigger" href="#cars">Catalogue</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link js-scroll-trigger" href="#Location">Locations</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+  </li>
+</ul>
+{% endblock %} {% block body %}
+
+<header>
+  <div
+    id="carouselExampleIndicators"
+    class="carousel slide"
+    data-ride="carousel"
+  >
+    <ol class="carousel-indicators">
+      <li
+        data-target="#carouselExampleIndicators"
+        data-slide-to="0"
+        class="active"
+      ></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div
+        class="carousel-item active"
+        style="background-image: url('static/images/caro1.jpg');"
+      >
+        <div class="carousel-caption d-none d-md-block">
+          <!-- <h2 class="display-4">First Slide</h2>
+          <p class="lead">This is a description for the first slide.</p> -->
+        </div>
+      </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div
+        class="carousel-item"
+        style="background-image: url('static/images/caro2.jpg');"
+      >
+        <div class="carousel-caption d-none d-md-block">
+          <!-- <h2 class="display-4">Second Slide</h2>
+          <p class="lead">This is a description for the second slide.</p> -->
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      <div
+        class="carousel-item"
+        style="background-image: url('static/images/caro3.jpg');"
+      >
+        <div class="carousel-caption d-none d-md-block">
+          <!-- <h2 class="display-4">Third Slide</h2>
+          <p class="lead">This is a description for the third slide.</p> -->
+        </div>
+      </div>
+    </div>
+    <a
+      class="carousel-control-prev"
+      href="#carouselExampleIndicators"
+      role="button"
+      data-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a
+      class="carousel-control-next"
+      href="#carouselExampleIndicators"
+      role="button"
+      data-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</header>
+
+<!-- ABOUT US -->
+<section class="bg-dark text-white" id="AboutUs">
+  <div class="container text-center">
+    <h2 class="mb-4">Check out all the cars!</h2>
+    <a class="btn btn-dark btn-xl sr-button" href="">Click here</a>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="bg-white text-bold" id="services">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Services</h2>
+        <hr class="my-4" />
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="service-box mt-5 mx-auto">
+          <i class="fa fa-4x fa-cog fa-spin text-primary mb-3 sr-icons"></i>
+          <h3 class="mb-3">Garage</h3>
+          <p class="text-muted mb-0">
+            We provide routine check ups and service for your vehicle.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="service-box mt-5 mx-auto">
+          <i class="fa fa-4x fa-clock-o text-primary mb-3 sr-icons"></i>
+          <h3 class="mb-3">On time delivery</h3>
+          <p class="text-muted mb-0">
+            We deliver it on the scheduled date.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="service-box mt-5 mx-auto">
+          <i class="fa fa-4x fa-newspaper-o text-primary mb-3 sr-icons"></i>
+          <h3 class="mb-3">Always updated</h3>
+          <p class="text-muted mb-0">
+            We update our stocks and catalogue with the latest and greatest.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="service-box mt-5 mx-auto">
+          <i class="fa fa-4x fa-life-ring text-primary mb-3 sr-icons"></i>
+          <h3 class="mb-3">Support</h3>
+          <p class="text-muted mb-0">
+            We provide support for your vehicle, even after it is delivered to
+            you!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light" id="cars">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Catalogue</h2>
+        <hr class="my-4" />
+      </div>
+      <div class="col-lg-12 mx-auto text-center">
+        <div
+          id="carousel_catalogue"
+          class="carousel slide"
+          data-ride="carousel"
+        >
+          <ol class="carousel-indicators">
+            <li
+              data-target="#carousel_catalogue"
+              data-slide-to="0"
+              class="active"
+            ></li>
+            <li data-target="#carousel_catalogue" data-slide-to="1"></li>
+            <li data-target="#carousel_catalogue" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <!-- Slide One - Set the background image for this slide in the line below -->
+            <div
+              class="carousel-item active"
+              style="background-image: url('static/images/caro1.jpg');"
+            >
+              <div class="carousel-caption d-none d-md-block">
+                <!-- <h2 class="display-4">First Slide</h2>
+          <p class="lead">This is a description for the first slide.</p> -->
+              </div>
+            </div>
+            <!-- Slide Two - Set the background image for this slide in the line below -->
+            <div
+              class="carousel-item"
+              style="background-image: url('static/images/caro2.jpg');"
+            >
+              <div class="carousel-caption d-none d-md-block">
+                <!-- <h2 class="display-4">Second Slide</h2>
+          <p class="lead">This is a description for the second slide.</p> -->
+              </div>
+            </div>
+            <!-- Slide Three - Set the background image for this slide in the line below -->
+            <div
+              class="carousel-item"
+              style="background-image: url('static/images/caro3.jpg');"
+            >
+              <div class="carousel-caption d-none d-md-block">
+                <!-- <h2 class="display-4">Third Slide</h2>
+          <p class="lead">This is a description for the third slide.</p> -->
+              </div>
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#carousel_catalogue"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carousel_catalogue"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Location -->
+<section class="bg-dark text-white" id="Location">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Location</h2>
+        <hr class="my-4" />
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="service-box mt-5 mx-auto">
+          <i class="fa fa-4x fa-location-arrow text-primary mb-3 sr-icons"></i>
+          <h3 class="mb-3">Lubumbashi</h3>
+          <p class="text-muted mb-0">
+            2143, Blvd Lubumba, C/ Kampemba, Province du Hout Katanga, DRC.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="service-box mt-5 mx-auto">
+          <i class="fa fa-4x fa-location-arrow text-primary mb-3 sr-icons"></i>
+          <h3 class="mb-3">Kolwezi</h3>
+          <p class="text-muted mb-0">
+            5170,Route Likasi,C/Manika,Kolwezi, Province De Lualaba, DRC.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- contact -->
+<section id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <h2 class="section-heading">Let's Get In Touch!</h2>
+        <hr class="my-4" />
+        <p class="mb-5">
+          Ready to buy the next car from us? That's great! Give us a call or
+          send us an email and we will get back to you as soon as possible!
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 ml-auto text-center">
+        <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
+        <p>Sales: +243 906 605 555</p>
+        <p>Service: +243 905 605 555</p>
+        <p>Spares: +243 858 006 494</p>
+      </div>
+      <div class="col-lg-4 mr-auto text-center">
+        <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
+        <p>
+          Kolwezi:
+          <a href="mailto:sales@pan-mo.com">sales@pan-mo.com</a>
+        </p>
+        <p>
+          Lubumbashi:
+          <a href="mailto:sales.lshi@pan-mo.com">sales.lshi@pan-mo.com</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; PAMO 2020</p>
+  </div>
+  <!-- /.container -->
+</footer>
+
+{% endblock %} {% block scripts %}
+<script src="{% static 'js/creative.js' %}"></script>
+{% endblock %}
