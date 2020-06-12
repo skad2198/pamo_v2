@@ -11,8 +11,8 @@ def index(request):
 def cars_page(request, pg=1):
 
     # Each page has 9 requests. That is fixed.
-    start = (pg-1) * 9
-    end = start + 9
+    start = (pg-1) * 6
+    end = start + 6
 
     car_list = vehicle.objects.all()[start:end]
     context = {
