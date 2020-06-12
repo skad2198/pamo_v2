@@ -266,12 +266,12 @@ header.masthead p {
 .header-link:hover {
   text-decoration: none;
 }
-.boy-card .card-header {
-  background-color: var(--boy);
+.blue-card .card-header {
+  background-color: #e3fbff;
 }
-.boy-card .card-body,
-.boy-card .card-body p a {
-  color: var(--boy);
+.blue-card .card-body,
+.blue-card .card-body p a {
+  color: #212529;
 }
 
 
