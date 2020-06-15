@@ -92,7 +92,7 @@ endblock %} {% block css %}
               class="img-fluid"
             />
             <div class="card-header">
-              <a href="" class="text-bold header-link">{{vehicles.name}} </a>
+              <a href="{% url 'web:cars_details' vehicles.pk %}" class="text-bold header-link">{{vehicles.name}} </a>
             </div>
             <div class="card-body pb-0">
               <p>
