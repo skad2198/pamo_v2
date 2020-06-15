@@ -81,7 +81,7 @@ endblock %} {% block css %}
       <div class="products-grid col-xl-9 col-lg-8 sidebar-left">
         <div class="row grid">
           <!-- item-->
-          {% if cars %} {% for vehicles in cars %}
+          {% if page_obj %} {% for vehicles in page_obj %}
           <div class="card my-2 mx-2 blue-card">
             <img class="image"
               src="{% if vehicles.image %}
@@ -112,7 +112,24 @@ endblock %} {% block css %}
           aria-label="page navigation example"
           class="d-flex justify-content-center"
         >
-          <ul class="pagination pagination-custom">
+        <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+          {% comment %} <ul class="pagination pagination-custom">
             <li class="page-item" id="prev" onclick="previous()">
               <a href="#" aria-label="Previous" class="page-link"
                 ><span aria-hidden="true">Prev</span
@@ -125,7 +142,7 @@ endblock %} {% block css %}
                 ><span class="sr-only">Next </span></a
               >
             </li>
-          </ul>
+          </ul> {% endcomment %}
         </nav>
       </div>
       <!-- / Grid End-->

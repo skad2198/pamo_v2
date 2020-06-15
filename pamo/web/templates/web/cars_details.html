@@ -1,22 +1,65 @@
-<h1>Welcome to Cars_details page<h1>
-
+{% extends 'web/base_alt.html' %}
 {% load static %}
-<ul>
-    <li>
-        <img class="image"
-              src="{% if car_detail.image %}
-                {{car_detail.image.url}}
-                {% else %}
-                {% static 'images/car.jpg' %}
-                {% endif %}"
-              class="img-fluid"
-    />
-    </li>
+{% block title %}{{ car.brand }} {{ car.name }}{% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/css_style.default.css' %}" id="theme-stylesheet">
+{% endblock %}
 
-    <li>Owner: {{car_detail.name}}</li>
-    
-    <li>Brand : {{car_detail.brand }}</li>
-    
-    <li>Vehicle Type: {{car_detail.vehicle_type}}</li>
-    
-</ul>
+{% block menu %}
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{% url 'web:cars' %}">Cars</a>
+        </li>
+    </ul>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <h3 class="my-4">{{ car.brand }}</h3>
+            </div>
+            <!-- /.col-lg-3 -->
+
+            <div class="col-lg-12">
+
+                <div class="card">
+                <img
+                  src="{% if car_detail.image %}
+                  {{car_detail.image.url}}
+                  {% else %}
+                  {% static 'images/car.jpg' %}
+                  {% endif %}"
+                class="img-fluid"/>
+                    
+                    <div class="card-body">
+                        <h3 class="card-title">{{ car_detail.name }}</h3>
+                        <p class="card-text">{{ car_detail.description }}</p>
+                    </div>
+                </div>
+                <!-- /.card -->
+
+                <div class="card card-outline-secondary my-4">
+                    <div class="card-header">
+                        Specification
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    Car type
+                                </td>
+                                <td>
+                                    {{ car_detail.vehicle_type }}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col-lg-9 -->
+        </div>
+    </div>
+    {% endblock %}
