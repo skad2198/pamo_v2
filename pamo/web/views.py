@@ -14,8 +14,8 @@ def index(request):
 
 def cars_page(request):
     #print('I am here ')
-    if request.GET:
-        search_term = request.GET['search']
+    if request.POST:
+        search_term = request.POST['search']
         #search_term = search
         #print('I am here in IF ')
         # print(search_term)
@@ -54,28 +54,12 @@ def cars_page(request):
             'page_obj': page_obj,
         }
         return render(request, 'web/cars.html', context)
-    return render(request, 'web/cars.html', {'page_obj': page_obj})
-
-
-# def cars_page(request, pg=1):
-
-#     # Each page has 9 requests. That is fixed.
-#     start = (pg-1) * 9
-#     end = start + 9
-
-#     car_list = vehicle.objects.all()[start:end]
-#     context = {
-#         'cars': car_list
-#     }
-
-#     return render(request, 'web/cars.html', context)
-
-
+ 
 def cars_details(request, car_id):
     print(car_id)
     car_detail = vehicle.objects.get(pk=car_id)
     print(car_detail.name)
     context = {
-        'car_detail': car_detail,
+        'car_detail' : car_detail, 
     }
     return render(request, 'web/cars_details.html', context)
