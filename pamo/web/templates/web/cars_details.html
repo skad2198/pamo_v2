@@ -1,0 +1,22 @@
+<h1>Welcome to Cars_details page<h1>
+
+{% load static %}
+<ul>
+    <li>
+        <img class="image"
+              src="{% if car_detail.image %}
+                {{car_detail.image.url}}
+                {% else %}
+                {% static 'images/car.jpg' %}
+                {% endif %}"
+              class="img-fluid"
+    />
+    </li>
+
+    <li>Owner: {{car_detail.name}}</li>
+    
+    <li>Brand : {{car_detail.brand }}</li>
+    
+    <li>Vehicle Type: {{car_detail.vehicle_type}}</li>
+    
+</ul>

@@ -23,3 +23,12 @@ def cars_page(request, pg=1):
     }
 
     return render(request, 'web/cars.html', context)
+
+def cars_details(request, car_id):
+    print(car_id)
+    car_detail = vehicle.objects.get(pk=car_id)
+    print(car_detail.name)
+    context = {
+        'car_detail' : car_detail, 
+    }
+    return render(request,'web/cars_details.html',context)
