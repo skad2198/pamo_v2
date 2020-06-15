@@ -15,7 +15,7 @@ endblock %} {% block css %}
 {% endblock %} {% block menu %}
 <ul class="navbar-nav ml-auto">
   <li class="nav-item">
-    <form class="form-inline my-2 my-lg-0" id="searchbar">
+    <form class="form-inline my-2 my-lg-0" id="searchbar" method="GET" action="{% url 'web:search' %}">
       <input
         class="form-control mr-sm-2"
         type="search"
@@ -23,6 +23,7 @@ endblock %} {% block css %}
         aria-label="Search"
         name="search"
         placeholder="Search"
+        id="search"
       />
       <button
         class="btn btn-outline-success my-2 my-sm-0"
@@ -78,6 +79,7 @@ endblock %} {% block css %}
       </div>
       <!-- /Sidebar end-->
       <!-- Grid -->
+      <h2>{{ error_message}}</h2>
       <div class="products-grid col-xl-9 col-lg-8 sidebar-left">
         <div class="row grid">
           <!-- item-->
