@@ -12,5 +12,4 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('cars/', views.cars_page, name='cars'),
     path('cars/<int:car_id>/', views.cars_details, name='cars_details'),
-    path('cars/search/',views.search_cars, name='search'),
 ]
