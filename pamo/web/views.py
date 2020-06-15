@@ -13,11 +13,12 @@ def index(request):
 
 
 def cars_page(request):
-    if request.GET:
-
-        search_term = request.GET['search']
-        print('I am here in IF ')
-        print(search_term)
+    #print('I am here ')
+    if request.POST:
+        search_term = request.POST['search']
+        #search_term = search
+        #print('I am here in IF ')
+        # print(search_term)
         search_results = vehicle.objects.filter(
             Q(name__icontains=search_term) |
             Q(brand__icontains=search_term) |
@@ -42,21 +43,15 @@ def cars_page(request):
 
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
-        return render(request, 'web/cars.html', {'page_obj': page_obj})
 
-
-# def cars_page(request, pg=1):
-
-#     # Each page has 9 requests. That is fixed.
-#     start = (pg-1) * 9
-#     end = start + 9
-
-#     car_list = vehicle.objects.all()[start:end]
-#     context = {
-#         'cars': car_list
-#     }
-
-#     return render(request, 'web/cars.html', context)
+        #car_list = vehicle.objects.all()
+        #print('I am here in else')
+        error_message = ''
+        context = {
+            'error_message': error_message,
+            'page_obj': page_obj,
+        }
+        return render(request, 'web/cars.html', context)
 
 
 def cars_details(request, car_id):

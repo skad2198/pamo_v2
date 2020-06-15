@@ -15,7 +15,8 @@ endblock %} {% block css %}
 {% endblock %} {% block menu %}
 <ul class="navbar-nav ml-auto">
   <li class="nav-item">
-    <form class="form-inline my-2 my-lg-0" id="searchbar" method="GET" action="{% url 'web:cars' %}">
+    <form class="form-inline my-2 my-lg-0" id="searchbar" method="POST" action="{% url 'web:cars' %}">
+      {% csrf_token %}
       <input
         class="form-control mr-sm-2"
         type="search"
