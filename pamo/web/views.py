@@ -25,7 +25,7 @@ def cars_page(request):
             Q(description__icontains=search_term) |
             Q(vehicle_type__icontains=search_term)
         )
-        paginator = Paginator(search_results, 9)  # Show 9 contacts per page.
+        paginator = Paginator(search_results, 9)  # Show 9 vehicles per page.
 
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
@@ -36,10 +36,24 @@ def cars_page(request):
             'page_obj': page_obj
         }
         return render(request, 'web/cars.html', context)
-
+    elif request.GET:
+        filters = request.GET['make']
+        filter_results = vehicle.objects.filter(
+            Q(vehicle_type__iexact=filters)
+        )
+        paginator = Paginator(filter_results, 9)  # show 9 vehicles per page
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        error_message = "Here's your filter results: " + filters
+        context = {
+            'error_message': error_message,
+            'filters': filters,
+            'page_obj': page_obj
+        }
+        return render(request, 'web/cars.html', context)
     else:
         vehicle_list = vehicle.objects.all()
-        paginator = Paginator(vehicle_list, 9)  # Show 9 contacts per page.
+        paginator = Paginator(vehicle_list, 9)  # Show 9 vehicles per page.
 
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
