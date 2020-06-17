@@ -38,9 +38,12 @@ def cars_page(request):
         return render(request, 'web/cars.html', context)
     elif request.GET:
         filters = request.GET['make']
-        filter_results = vehicle.objects.filter(
-            Q(vehicle_type__iexact=filters)
-        )
+        if filters == 'all':
+            filter_results = vehicle.objects.all()
+        else:
+            filter_results = vehicle.objects.filter(
+                Q(vehicle_type__iexact=filters)
+            )
         paginator = Paginator(filter_results, 9)  # show 9 vehicles per page
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
