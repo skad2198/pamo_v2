@@ -71,23 +71,25 @@ endblock %} {% block css %}
                 
                 class="radio-template"
                 value="all"
+
+                {{filter_ALL}}
               />
               <label for="all">All</label>
             </div>
             <div class="form-group mb-1">
-                <input id="SCV" type="radio" name="make" class="radio-template" value="SCV">
+                <input id="SCV" type="radio" name="make" class="radio-template" value="SCV" {{filter_SCV}}>
                 <label for="SCV">SCV</label>
             </div>
             <div class="form-group mb-1">
-                  <input id="Bus" type="radio" name="make" class="radio-template" value="Bus">
+                  <input id="Bus" type="radio" name="make" class="radio-template" value="Bus" {{filter_BUS}}>
                   <label for="Bus">Bus</label>
             </div>
             <div class="form-group mb-1">
-                  <input id="Truck" type="radio" name="make" class="radio-template" value="Truck">
+                  <input id="Truck" type="radio" name="make" class="radio-template" value="Truck" {{filter_TRUCK}}>
                   <label for="Truck">Truck</label>
             </div>
             <div class="form-group mb-1">
-                  <input id="Car" type="radio" name="make" class="radio-template" value="Car">
+                  <input id="Car" type="radio" name="make" class="radio-template" value="Car" {{filter_CAR}}>
                   <label for="Car">Car</label>
             </div>
           </div>

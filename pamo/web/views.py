@@ -37,6 +37,12 @@ def cars_page(request):
         }
         return render(request, 'web/cars.html', context)
     elif 'filters' in request.GET:
+        filter_ALL=''
+        filter_SCV=''
+        filter_BUS=''
+        filter_TRUCK=''
+        filter_CAR=''
+        
         filters = request.GET['make']
         if filters == 'all':
             filter_results = vehicle.objects.all()
@@ -44,11 +50,27 @@ def cars_page(request):
             filter_results = vehicle.objects.filter(
                 Q(vehicle_type__iexact=filters)
             )
+        if('all' in filters):
+            filter_ALL='checked'
+        elif('SCV' in filters):
+            filter_SCV='checked'
+        elif('Truck' in filters):
+            filter_TRUCK='checked'
+        elif('Car' in filters):
+            filter_CAR='checked'
+        else:
+            filter_BUS='checked'
+        
         paginator = Paginator(filter_results, 9)  # show 9 vehicles per page
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
         error_message = "Here's your filter results: " + filters
         context = {
+            'filter_ALL':filter_ALL,
+            'filter_SCV':filter_SCV,
+            'filter_BUS':filter_BUS,
+            'filter_TRUCK':filter_TRUCK,
+            'filter_CAR':filter_CAR,
             'error_message': error_message,
             'filters': filters,
             'page_obj': page_obj
