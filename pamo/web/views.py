@@ -36,7 +36,7 @@ def cars_page(request):
             'page_obj': page_obj
         }
         return render(request, 'web/cars.html', context)
-    elif request.GET:
+    elif 'filters' in request.GET:
         filters = request.GET['make']
         if filters == 'all':
             filter_results = vehicle.objects.all()
